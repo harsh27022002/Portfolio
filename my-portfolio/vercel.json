@@ -1,13 +1,11 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "dist/my-portfolio/browser**",
-        "use": "@vercel/static"
-      }
-    ],
+    "buildCommand": "ng build --configuration production",
+    "outputDirectory": "dist/my-portfolio/browser",
+    "framework": "angular",
     "routes": [
-      { "src": "/(.*)", "dest": "/dist/my-portfolio/browser/index.html" }
+      { "handle": "filesystem" },
+      { "src": "/(.*)", "dest": "/index.html" }
     ]
   }
   
