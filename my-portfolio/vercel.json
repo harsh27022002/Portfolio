@@ -1,6 +1,13 @@
 {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/my-portfolio/src/index.html" }
+    "version": 2,
+    "builds": [
+      {
+        "src": "dist/my-portfolio/**",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "/dist/my-portfolio/index.html" }
     ]
   }
   
