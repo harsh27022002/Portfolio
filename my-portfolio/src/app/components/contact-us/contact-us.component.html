@@ -1,0 +1,155 @@
+<section class="contact" id="contact">
+    <div class="section-title">
+      <h2>Contact Me</h2>
+      <p>Let’s Build Something Great Together</p>
+    </div>
+  
+    <div class="contact-content">
+      <!-- Left Info -->
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+        <p>
+          I'm available for freelance work and collaborations. Feel free to reach out for any project or just to say hi.
+        </p>
+  
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <p>harshmodanawal&#64;gmail.com</p>
+          </div>
+        </div>
+  
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Phone</h4>
+            <p>+91 8127543191</p>
+          </div>
+        </div>
+  
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>Location</h4>
+            <p>Lucknow, India</p>
+          </div>
+        </div>
+  
+        <div class="social-links">
+            <a href="https://github.com/harsh27022002" target="_blank" aria-label="GitHub">
+                <i class="bi bi-github"></i>
+              </a>
+        
+              <a href="https://www.linkedin.com/in/harshmodanwal/" target="_blank" aria-label="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+              </a>
+        
+              <a href="mailto:harshmodanawal@gmail.com" aria-label="Email">
+                <i class="bi bi-envelope"></i>
+              </a>
+        
+              <a href="https://www.instagram.com/_harshh_2.0/" target="_blank" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+        
+              <a href="https://x.com/harshmzp2702" target="_blank" aria-label="Twitter / X">
+                <i class="bi bi-twitter-x"></i>
+              </a>
+        
+              <a href="https://wa.me/918127543191" target="_blank" aria-label="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+              </a>
+        </div>
+      </div>
+  
+      <!-- Right Form -->
+    <!--   <form class="contact-form" (ngSubmit)="sendEmail()">
+        <div class="input-group">
+          <input
+            type="text"
+            placeholder="Your Name"
+            required
+            name="from_name"
+            [(ngModel)]="formData.from_name"
+          />
+        </div>
+      
+        <div class="input-group">
+          <input
+            type="email"
+            placeholder="Your Email"
+            required
+            name="reply_to"
+            [(ngModel)]="formData.reply_to"
+          />
+        </div>
+      
+        <div class="input-group">
+          <textarea
+            placeholder="Your Message"
+            rows="5"
+            required
+            name="message"
+            [(ngModel)]="formData.message"
+          ></textarea>
+        </div>
+      
+        <button type="submit" class="btn" [disabled]="isSending">
+          {{ isSending ? 'Sending...' : 'Send Message' }}
+        </button>
+      
+        <p class="status-message" *ngIf="statusMessage">{{ statusMessage }}</p>
+      </form> -->
+      <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)" novalidate class="contact-form">
+        <div class="input-group">
+          <input
+            type="text"
+            placeholder="Your Name"
+            name="from_name"
+            [(ngModel)]="formData.from_name"
+            required
+            #fromName="ngModel"
+          />
+          <small class="error" *ngIf="fromName.invalid && fromName.touched">Name is required</small>
+        </div>
+  
+        <div class="input-group">
+          <input
+            type="email"
+            placeholder="Your Email"
+            name="reply_to"
+            [(ngModel)]="formData.reply_to"
+            required
+            email
+            #replyTo="ngModel"
+          />
+          <small class="error" *ngIf="replyTo.invalid && replyTo.touched">Valid email is required</small>
+        </div>
+  
+        <div class="input-group">
+          <textarea
+            placeholder="Your Message"
+            rows="5"
+            name="message"
+            [(ngModel)]="formData.message"
+            required
+            #message="ngModel"
+          ></textarea>
+          <small class="error" *ngIf="message.invalid && message.touched">Message cannot be empty</small>
+        </div>
+  
+        <button type="submit" class="btn" [disabled]="isSending || contactForm.invalid">
+          {{ isSending ? 'Sending...' : 'Send Message' }}
+        </button>
+  
+        <p class="status-message" *ngIf="statusMessage">{{ statusMessage }}</p>
+      </form>
+      
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2025 Harsh Modanwal. All Rights Reserved.</p>
+    </div>
+  </footer>
