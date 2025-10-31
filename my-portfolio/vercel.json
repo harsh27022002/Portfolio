@@ -2,12 +2,12 @@
     "version": 2,
     "builds": [
       {
-        "src": "dist/my-portfolio/**",
+        "src": "dist/my-portfolio/browser**",
         "use": "@vercel/static"
       }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "/dist/my-portfolio/index.html" }
+      { "src": "/(.*)", "dest": "/dist/my-portfolio/browser/index.html" }
     ]
   }
   
